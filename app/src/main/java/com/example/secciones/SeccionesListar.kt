@@ -1,4 +1,4 @@
-package com.example.dependencias
+package com.example.secciones
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,7 +48,7 @@ fun DependenciesContentAñadir(modifier: Modifier)
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "AÑADIR DEPENDENCIA",
+                text = "AÑADIR SECCION",
                 fontSize = 30.sp,
                 modifier = Modifier.padding(bottom = 23.dp)
             )
@@ -113,4 +113,3 @@ fun DependenciesContentAñadir(modifier: Modifier)
 
     }
 }
-

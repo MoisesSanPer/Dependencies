@@ -1,13 +1,15 @@
-package com.example.dependencias
+package com.example.secciones
+
+import com.example.dependencias.R
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -29,21 +31,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-var List = mutableListOf<String>("Dependencia1","Dependencia2","Dependencia3")
+var List = mutableListOf<String>("Seccion1","Seccion2","Seccion3")
 
 @Composable
 @Preview
-fun DependenciesScreenPrincipalListar(modifier: Modifier=Modifier){
-    DependenciesContentPrincipal(modifier)
+fun SeccionesListarPrincipal(modifier: Modifier=Modifier){
+    SeccionesListarContent(modifier)
 }
 
 
 @Composable
-private fun DependenciesContentPrincipal(modifier: Modifier=Modifier)
+private fun SeccionesListarContent(modifier: Modifier=Modifier)
 {
     Column {
         HorizontalDivider()
         Row {
+
             TopBarWithMenuIcon( )
         }
         HorizontalDivider()
@@ -76,10 +79,9 @@ fun ItemList(items: List<String>) {
     LazyColumn(
         modifier = Modifier.padding(horizontal = 16.dp)
     ) {
-        items(30) { item ->
+        items(items) { item ->
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
                     .border(
                         width = 1.dp,
                         color = Color.Black,
@@ -88,28 +90,18 @@ fun ItemList(items: List<String>) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Hola",
-                    fontSize = 14.sp,
-                    modifier = Modifier
-                        .weight(1f) // Empuja el resto del contenido hacia la derecha
-                        .align(Alignment.CenterVertically)
+                    text = item,
+                    fontSize = 16.sp,
+                    modifier = Modifier.weight(1f) //Para que se me quede en la derecha
                 )
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = "10 productos",
-                        fontSize = 14.sp,
-                        modifier = Modifier.padding(end = 2.dp)
-                    )
-                    IconButton(
-                        onClick = {  }
+                IconButton (
+                    onClick = {},
+
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.MoreVert,
-                            contentDescription = "Editar"
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Default.MoreVert,
+                        contentDescription = "Editar"
+                    )
                 }
             }
         }
@@ -117,18 +109,16 @@ fun ItemList(items: List<String>) {
 }
 
 
-
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarWithMenuIcon(modifier: Modifier=Modifier) {
     TopAppBar(
         title = {   Text(
-            text = "Dependencias",
+            text = "Secciones",
             fontSize = 20.sp,
         ) },
         navigationIcon = {
+
             Icon(
                 imageVector = Icons.Default.Menu,
                 contentDescription = "Menú"
@@ -155,4 +145,3 @@ fun TopBarWithMenuIcon(modifier: Modifier=Modifier) {
         }
     )
 }
-
