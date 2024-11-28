@@ -32,10 +32,6 @@ import com.example.secciones.SimpleExposedDropdownMenu
 fun DependenciesScreenEditar(modifier: Modifier = Modifier){
     DependenciesContentEditar(modifier)
 }
-
-
-
-
 @Composable
 fun DependenciesContentEditar(modifier: Modifier) {
     //Esta mal puesto esto aqui solo lo he puesto para ver que escribe
@@ -84,7 +80,7 @@ fun DependenciesContentEditar(modifier: Modifier) {
                 )
             )
             Spacer(modifier.size(10.dp))
-            SimpleExposedDropdownMenu()
+
             Box(
                 modifier = modifier.size(300.dp)
             )

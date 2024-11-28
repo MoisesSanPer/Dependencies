@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -80,9 +81,10 @@ fun ItemList(items: List<String>) {
     LazyColumn(
         modifier = Modifier.padding(horizontal = 16.dp)
     ) {
-        items(items) { item ->
+        items(10) { item ->
             Row(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .border(
                         width = 1.dp,
                         color = Color.Black,
@@ -91,18 +93,28 @@ fun ItemList(items: List<String>) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = item,
-                    fontSize = 16.sp,
-                    modifier = Modifier.weight(1f) //Para que se me quede en la derecha
+                    text = "Hola",
+                    fontSize = 14.sp,
+                    modifier = Modifier
+                        .weight(1f) // Empuja el resto del contenido hacia la derecha
+                        .align(Alignment.CenterVertically)
                 )
-                IconButton (
-                    onClick = {},
-
-                    ) {
-                    Icon(
-                        imageVector = Icons.Default.MoreVert,
-                        contentDescription = "Editar"
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = "10 productos",
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(end = 2.dp)
                     )
+                    IconButton(
+                        onClick = {  }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.MoreVert,
+                            contentDescription = "Editar"
+                        )
+                    }
                 }
             }
         }
