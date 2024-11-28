@@ -1,4 +1,4 @@
-package com.example.secciones
+package com.example.dependencias
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,9 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -28,17 +25,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import com.example.secciones.SimpleExposedDropdownMenu
 
 @Composable
 @Preview
-fun SeccionesScreenAñadir(modifier: Modifier = Modifier){
-    SeccionesContentAñadir(modifier)
+fun DependenciesScreenEditar(modifier: Modifier = Modifier){
+    DependenciesContentEditar(modifier)
 }
 
+
+
+
 @Composable
-fun SeccionesContentAñadir(modifier: Modifier)
-{
+fun DependenciesContentEditar(modifier: Modifier) {
     //Esta mal puesto esto aqui solo lo he puesto para ver que escribe
     var Nombre by remember { mutableStateOf("") }
     var NombreCorto by remember { mutableStateOf("") }
@@ -52,7 +51,7 @@ fun SeccionesContentAñadir(modifier: Modifier)
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "AÑADIR SECCION",
+                text = "EDITAR DEPENDENCIA",
                 fontSize = 30.sp,
                 modifier = Modifier.padding(bottom = 23.dp)
             )
@@ -110,7 +109,7 @@ fun SeccionesContentAñadir(modifier: Modifier)
 
             ) {
                 Text(
-                    text = "Añadir",
+                    text = "Editar",
                 )
             }
 
@@ -119,35 +118,3 @@ fun SeccionesContentAñadir(modifier: Modifier)
 
     }
 }
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SimpleExposedDropdownMenu() {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = it }
-    ) {
-        OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            readOnly = true,
-            label = { Text("Selecciona una opción") },
-            trailingIcon = {
-                ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
-            },
-            modifier = Modifier.menuAnchor()
-        )
-
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            Text("Dependencia 1", modifier = Modifier.padding(16.dp))
-            Text("Dependencia 2", modifier = Modifier.padding(16.dp))
-            Text("Dependencia 3", modifier = Modifier.padding(16.dp))
-        }
-    }
-}
-
